@@ -1,2 +1,54 @@
 # asus_zenbook_ux3405ma
 SSDT Patch to fix missing speakers sound on Asus Zenbook 14 UX3405MA (2024) and latest BIOS 304
+
+**BIOS Configuration**
+
+- **BIOS Version:** Tested on 304
+- **Secure Boot:** Disabled
+- **Tested on OS:** Fedora 39 kernel-6.8.4-200.fc39.x86_64
+
+# Patch installation
+
+### build the _ssdt-csc3551.dsl_
+
+```
+iasl -tc ssdt-csc3551.dsl
+```
+
+### copy it in /boot
+
+```
+sudo cp -f ssdt-csc3551.aml /boot
+```
+
+### copy grub script
+
+```
+sudo cp -f 01_acpi /etc/grub.d && sudo chmod +x /etc/grub.d/01_acpi
+```
+
+### update grub config
+
+* Update grub config
+  * Debian / Ubuntu based distributions
+
+    ```sudo update-grub```
+
+  * Fedora / RHEL-based distributions
+
+    ```sudo grub2-mkconfig -o /etc/grub2.cfg```
+
+    ```sudo grub2-mkconfig -o /etc/grub2-efi.cfg```
+
+  * Arch based distributions
+
+    ```grub-mkconfig -o /boot/grub/grub.cfg```
+
+### reboot
+
+### Special thanks
+
+| User                                          |                                                                                      Description                                                                                        |
+| :-------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [lamperez](https://gist.github.com/lamperez)  | For [ACPI DSDT/SSDT patching guides](https://gist.github.com/lamperez/862763881c0e1c812392b5574727f6ff) and [tools](https://gist.github.com/lamperez/d5b385bc0c0c04928211e297a69f32d7)  |
+| [thor2002ro](https://github.com/thor2002ro)   | For [GRUB patch](https://github.com/thor2002ro/asus_zenbook_ux3402za/tree/main/Sound) for similar laptop                                         |
