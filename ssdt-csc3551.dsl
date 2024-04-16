@@ -70,7 +70,7 @@ DefinitionBlock ("", "SSDT", 1, "CUSTOM", "SPKRAMPS", 0x00000002)
             Name (_DSD, Package (0x02)  // _DSD: Device-Specific Data
             {
                 ToUUID ("daffd814-6eba-4d8c-8a91-bc9bbf4aa301") /* Device Properties for _DSD */, 
-                Package (0x06)
+                Package (0x07)
                 {
                     Package (0x02)
                     {
@@ -98,10 +98,21 @@ DefinitionBlock ("", "SSDT", 1, "CUSTOM", "SPKRAMPS", 0x00000002)
                         }
                     }, 
 
-                    Package () { "spk-id-gpios", Package () {
-                            SPK1, 0x02, Zero, Zero,
-                            SPK1, 0x02, Zero, Zero,
-                    }},
+                    Package (0x02)
+                    {
+                        "spk-id-gpios", 
+                        Package (0x08)
+                        {
+                            SPK1, 
+                            0x02, 
+                            Zero, 
+                            Zero, 
+                            SPK1, 
+                            0x02, 
+                            Zero, 
+                            Zero
+                        }
+                    }, 
 
                     Package (0x02)
                     {
