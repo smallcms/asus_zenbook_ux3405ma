@@ -3,9 +3,9 @@ SSDT Patch to fix missing speakers sound on Asus Zenbook 14 UX3405MA (2024) and 
 
 **BIOS Configuration**
 
-- **BIOS Version:** Tested on 304
+- **BIOS Version:** Tested on 305
 - **Secure Boot:** Disabled
-- **Tested on OS:** Fedora 39 kernel-6.8.4-200.fc39.x86_64
+- **Tested OS:** Fedora 39 kernel-6.8.6-200.fc39.x86_64
 
 # Patch installation
 
