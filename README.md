@@ -12,6 +12,9 @@ SSDT Patch to fix missing speakers sound on Asus Zenbook 14 UX3405MA (2024) and 
 ## Arch based
 Install AUR package, created by [tholden92](https://github.com/tholden92): https://aur.archlinux.org/packages/zenbook-sound-fix-ux3405ma
 
+## Package/repo installation (via OBS)
+See instructions to install compiled aml as binary package for ArchLinux, Fedora, Debian, openSUSE, Ubuntu here: [![build result](https://build.opensuse.org/projects/home:smallcms/packages/zenbook-sound-fix-ux3405ma/badge.svg?type=percent)](https://software.opensuse.org//download.html?project=home%3Asmallcms&package=zenbook-sound-fix-ux3405ma)
+
 ## Manual installation
 
 ### build the _ssdt-csc3551.dsl_
