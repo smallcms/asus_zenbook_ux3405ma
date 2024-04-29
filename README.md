@@ -58,6 +58,23 @@ sudo cp -f 01_acpi /etc/grub.d && sudo chmod +x /etc/grub.d/01_acpi
 
 ### reboot
 
+# Bonus: Fix pop/crack when stop playback, audio cutting out
+
+Copy pipewire and wireplumber config parts to user's home ~/.config
+
+```
+cp -r fix_pop_crack_pop/pipewire ~/.config
+cp -r fix_pop_crack_pop/wireplumber ~/.config
+```
+
+Restart audio
+
+```
+systemctl --user restart wireplumber pipewire pipewire-pulse
+```
+
+Restart your app (ex. Chrome). Done.
+
 ### Special thanks
 
 | User                                          |                                                                                      Description                                                                                        |
