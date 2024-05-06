@@ -64,7 +64,16 @@ Copy pipewire and wireplumber config parts to user's home ~/.config
 
 ```
 cp -r fix_pop_crack_pop/pipewire ~/.config
-cp -r fix_pop_crack_pop/wireplumber ~/.config
+```
+> [!NOTE]
+> If you using wireplumber before 0.5, copy this lua
+```
+cp -r fix_pop_crack_pop/wireplumber/main.lua.d ~/.config/wireplumber
+```
+> [!NOTE]
+> If you have modern wireplumber 0.5 or higher, copy this conf
+```
+cp -r fix_pop_crack_pop/wireplumber/wireplumber.conf.d ~/.config/wireplumber
 ```
 
 Restart audio
