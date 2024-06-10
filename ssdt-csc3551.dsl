@@ -10,9 +10,9 @@ DefinitionBlock ("", "SSDT", 1, "CUSTOM", "SPKRAMPS", 0x00000002)
             Name (_HID, "CSC3551")  // _HID: Hardware ID
             Name (_SUB, "10431A63")  // _SUB: Subsystem ID
             Name (_UID, One)  // _UID: Unique ID
-            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
             {
-                Name (SBUF, ResourceTemplate ()
+                Local0 = ResourceTemplate ()
                 {
                     SpiSerialBusV2 (0x0000, PolarityLow, FourWireMode, 0x08,
                         ControllerInitiated, 0x003D0900, ClockPolarityLow,
@@ -54,8 +54,8 @@ DefinitionBlock ("", "SSDT", 1, "CUSTOM", "SPKRAMPS", 0x00000002)
                         {   // Pin list
                             0x00CF
                         }
-                })
-                Return (SBUF) /* \_SB_.PC00.SPI1.SPK1._CRS.SBUF */
+                }
+                Return (Local0) /* \_SB_.PC00.SPI1.SPK1._CRS.Local0 */
             }
 
             Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -65,6 +65,8 @@ DefinitionBlock ("", "SSDT", 1, "CUSTOM", "SPKRAMPS", 0x00000002)
 
             Method (_DIS, 0, NotSerialized)  // _DIS: Disable Device
             {
+                // Disable logic should go here, currently not implemented
+                Return (Zero)
             }
 
             Name (_DSD, Package (0x02)  // _DSD: Device-Specific Data
@@ -176,6 +178,10 @@ DefinitionBlock ("", "SSDT", 1, "CUSTOM", "SPKRAMPS", 0x00000002)
                 }
             }
         })
+
+        Method (_STA, 0, NotSerialized)  // _STA: Status
+        {
+            Return (0x0F)
+        }
     }
 }
-
