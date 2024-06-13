@@ -21,25 +21,25 @@ See instructions to install compiled aml as binary package for ArchLinux, Fedora
 
 ## Manual installation
 
-### build the _ssdt-csc3551.dsl_
+### Build the _ssdt-csc3551.dsl_
 
 ```
 iasl -tc ssdt-csc3551.dsl
 ```
 
-### copy it in /boot
+### Copy it to /boot
 
 ```
 sudo cp -f ssdt-csc3551.aml /boot
 ```
 
-### copy grub script
+### Copy grub script
 
 ```
 sudo cp -f 01_acpi /etc/grub.d && sudo chmod +x /etc/grub.d/01_acpi
 ```
 
-### update grub config
+### Update grub config
 
 * Update grub config
   * Debian / Ubuntu based distributions
@@ -56,7 +56,7 @@ sudo cp -f 01_acpi /etc/grub.d && sudo chmod +x /etc/grub.d/01_acpi
 
     ```grub-mkconfig -o /boot/grub/grub.cfg```
 
-### reboot
+### Reboot
 
 # Bonus: Fix pop/crack when stop playback, audio cutting out
 
@@ -66,7 +66,7 @@ Copy pipewire and wireplumber config parts to user's home ~/.config
 cp -r fix_pop_crack_pop/pipewire ~/.config
 ```
 > [!NOTE]
-> If you using wireplumber before 0.5, copy this lua
+> If you are using wireplumber before 0.5, copy this lua
 ```
 cp -r fix_pop_crack_pop/wireplumber/main.lua.d ~/.config/wireplumber
 ```
@@ -81,6 +81,34 @@ Restart audio
 ```
 systemctl --user restart wireplumber pipewire pipewire-pulse
 ```
+
+Restart your app (ex. Chrome). Done.
+
+# Alternative: If pop/crack and audio cutting out persists
+
+Copy Pipewire and Wireplumber config parts to /etc/
+
+```
+sudo cp -r fix_pop_crack_pop/pipewire /etc/
+```
+> [!NOTE]
+> Wireplumber < 0.5
+```
+sudo cp -r fix_pop_crack_pop/wireplumber/main.lua.d /etc/wireplumber/
+```
+> [!NOTE]
+> Modern Wireplumber ≥ 0.5
+```
+sudo cp -r fix_pop_crack_pop/wireplumber/wireplumber.conf.d /etc/wireplumber/
+```
+
+
+Restart Audio
+
+```
+systemctl --user restart wireplumber pipewire pipewire-pulse
+```
+
 
 Restart your app (ex. Chrome). Done.
 
