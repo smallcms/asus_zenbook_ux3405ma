@@ -94,7 +94,7 @@ sudo cp -r fix_pop_crack_pop/pipewire /etc/
 > [!NOTE]
 > Wireplumber < 0.5
 ```
-sudo cp -r fix_pop_crack_pop/wireplumber/main.lua.d /etc/wireplumber
+sudo cp -r fix_pop_crack_pop/wireplumber/main.lua.d /etc/wireplumber/
 ```
 > [!NOTE]
 > Modern Wireplumber ≥ 0.5
