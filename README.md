@@ -66,7 +66,7 @@ Copy pipewire and wireplumber config parts to user's home ~/.config
 cp -r fix_pop_crack_pop/pipewire ~/.config
 ```
 > [!NOTE]
-> If you using wireplumber before 0.5, copy this lua
+> If you are using wireplumber before 0.5, copy this lua
 ```
 cp -r fix_pop_crack_pop/wireplumber/main.lua.d ~/.config/wireplumber
 ```
@@ -76,6 +76,14 @@ cp -r fix_pop_crack_pop/wireplumber/main.lua.d ~/.config/wireplumber
 cp -r fix_pop_crack_pop/wireplumber/wireplumber.conf.d ~/.config/wireplumber
 ```
 
+Restart audio
+
+```
+systemctl --user restart wireplumber pipewire pipewire-pulse
+```
+
+Restart your app (ex. Chrome). Done.
+
 # Alternative: If pop/crack and audio cutting out persists
 
 Copy Pipewire and Wireplumber config parts to /etc/
@@ -83,9 +91,13 @@ Copy Pipewire and Wireplumber config parts to /etc/
 ```
 sudo cp -r fix_pop_crack_pop/pipewire /etc/
 ```
-
 > [!NOTE]
-> Modern Wireplumber ≥0.5
+> Wireplumber < 0.5
+```
+sudo cp -r fix_pop_crack_pop/wireplumber/main.lua.d /etc/wireplumber
+```
+> [!NOTE]
+> Modern Wireplumber ≥ 0.5
 ```
 sudo cp -r fix_pop_crack_pop/wireplumber/wireplumber.conf.d /etc/wireplumber/
 ```
