@@ -1,6 +1,13 @@
 # ASUS Zenbook UX3405MA amplifier
 SSDT Patch to fix missing speakers sound on Asus Zenbook 14 UX3405MA (2024) and latest BIOS
 
+> [!NOTE]
+> Deprecated! ≥ 6.11 Linux Kernel
+>
+> Added support for **10431A63**
+>
+> https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/sound/pci/hda/cs35l41_hda_property.c?h=v6.11
+
 **BIOS Configuration**
 
 - **BIOS Version:** Tested on 305
