@@ -7,6 +7,22 @@ SSDT Patch to fix missing speakers sound on Asus Zenbook 14 UX3405MA (2024) and 
 > Added support for **10431A63**
 >
 > https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/sound/pci/hda/cs35l41_hda_property.c?h=v6.11
+> 
+> If the maximum volume is still a bit low in kernel 6.11 and later, you can create the following symlinks to load
+> a different (newer) firmware. Do so at your own risk! 
+>
+> ```
+> cd /lib/firmware/cirrus
+> ln -s cs35l41/v6.83.0/halo_cspl_RAM_revB2_29.85.0.wmfw cs35l41-dsp1-spk-prot-10431a63-spkid0-r0.wmfw
+> ln -s cs35l41/v6.83.0/halo_cspl_RAM_revB2_29.85.0.wmfw cs35l41-dsp1-spk-prot-10431a63-spkid0-l0.wmfw
+> ```
+>
+> Additionally, your linux-firmware package may be missing [this commit with some tunings](https://github.com/CirrusLogic/linux-firmware/commit/dfadf5687922f239eb8b04df0e1726230098b802), add them:
+> ```
+> cd /lib/firmware/cirrus
+> ln -s cs35l41/bincfgs/cs35l41-dsp1-19_5dB.bincfg cs35l41-dsp1-spk-prot-10431a63-spkid0-r0.bincfg
+> ln -s cs35l41/bincfgs/cs35l41-dsp1-19_5dB.bincfg cs35l41-dsp1-spk-prot-10431a63-spkid0-l0.bincfg
+> ```
 
 **BIOS Configuration**
 
